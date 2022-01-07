@@ -11,7 +11,7 @@ public:
     
     string get(string key, int timestamp) {
         
-        auto it = hmap[key].find(timestamp);
+        map<int, string>::iterator it = hmap[key].find(timestamp);
         if( it != hmap[key].end()){
             return it->second;
         }
