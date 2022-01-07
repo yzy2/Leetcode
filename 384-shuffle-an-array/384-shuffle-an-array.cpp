@@ -8,8 +8,7 @@ public:
     }
     
     vector<int> reset() {
-        m_nums = default_nums;
-        return m_nums;
+        return default_nums;
     }
     
     vector<int> shuffle() {
