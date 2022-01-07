@@ -10,7 +10,6 @@ public:
     
     int pickIndex() {
         int target = rand()%m_ct[m_ct.size()-1];
-        
         // bfs Search 
         int beg, end, mid;
         beg = 0;
@@ -34,7 +33,6 @@ public:
             }
             
         }
-        
         return 0;
     }
 };
