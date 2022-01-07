@@ -11,11 +11,12 @@ public:
     
     string get(string key, int timestamp) {
         
-        if(hmap[key].find(timestamp) != hmap[key].end()){
-            return hmap[key][timestamp];
+        auto it = hmap[key].find(timestamp);
+        if( it != hmap[key].end()){
+            return it->second;
         }
         
-        auto it = hmap[key].lower_bound(timestamp);
+        it = hmap[key].lower_bound(timestamp);
         if(it == hmap[key].begin()) return "";
         return (--it)->second;
         
