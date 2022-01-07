@@ -13,10 +13,11 @@ public:
     }
     
     vector<int> shuffle() {
+        int ran, temp;
         
         for(int i = 0; i<m_nums.size(); ++i){
-            int ran = rand()%m_nums.size();
-            int temp = m_nums[i];
+            ran = rand()%m_nums.size();
+            temp = m_nums[i];
             m_nums[i] = m_nums[ran];
             m_nums[ran] = temp;
         }
