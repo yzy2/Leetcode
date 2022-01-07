@@ -16,9 +16,7 @@ public:
         
         for(int i = 0; i<m_nums.size(); ++i){
             ran = rand()%m_nums.size();
-            temp = m_nums[i];
-            m_nums[i] = m_nums[ran];
-            m_nums[ran] = temp;
+            swap(m_nums[i], m_nums[ran]);
         }
         
         return m_nums;
