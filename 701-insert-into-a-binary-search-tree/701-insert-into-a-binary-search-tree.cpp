@@ -35,19 +35,4 @@ public:
         }
         return root;
     }
-    void helper(TreeNode* root, int val){
-        if(!root) return;
-        
-        
-        
-        if(root->val > val){
-            helper(root->left, val);
-        }
-        else{
-            helper(root->right, val);
-        }
-            
-        
-        
-    }
 };
