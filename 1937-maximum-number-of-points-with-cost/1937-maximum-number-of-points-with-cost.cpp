@@ -37,15 +37,20 @@ public:
 		}
 		long long maxct;
 		for(int i = 1; i < m; i++){
+            
+            //maxct = max(maxct, (long long)((points[i][j] + dp[i-1][k]) - abs(j-k)));
+            //((points[i][j] + dp[i-1][k]) - j + k))); // j > k -> -j +k   k = 0, 1 ... j
+            //((points[i][j] + dp[i-1][k]) + j - k))); // j < k -> +j -k   k = j, j-1 ... 0
+            
             long long left = (long long)INT_MIN;
 			for(int j = 0; j<n; j++){        
                 left = max(left, dp[i-1][j] + j);
-				dp[i][j] = max(dp[i][j], left + points[i][j] - j);
+				dp[i][j] = max(dp[i][j], left + points[i][j] - j); // k = 0....j
 			}
             long long right = (long long)INT_MIN;
             for(int j = n-1; j>=0; j--){        
                 right = max(right, dp[i-1][j] - j);
-				dp[i][j] = max(dp[i][j], right + points[i][j] + j);
+				dp[i][j] = max(dp[i][j], right + points[i][j] + j);// k = j, j-1 ....0
 			}	
 		}
 
