@@ -8,11 +8,11 @@ public:
         }
         sort(tasks.begin(), tasks.end());
         
-        long long curr = 0;
+        long curr = 0;
         int i = 0;
         while(i < tasks.size() || !pq.empty()){
             if(pq.empty()){
-                curr = max(curr, (long long)tasks[i][0]);
+                curr = max(curr, (long)tasks[i][0]);
             }
 
             while(i < tasks.size() && tasks[i][0] <= curr){
@@ -20,11 +20,11 @@ public:
                 i++;
             }
 
-            if(!pq.empty()){
-                curr += (long long)pq.top().first;
-                output.push_back(pq.top().second);
-                pq.pop();
-            }
+            
+            curr += (long)pq.top().first;
+            output.push_back(pq.top().second);
+            pq.pop();
+            
                         
         }
         
