@@ -2,7 +2,7 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         
-        unordered_set<int> hset;
+        set<int> hset;
         int next=0;
         int output = 0;
         int temp = 0;
@@ -12,12 +12,12 @@ public:
         
 
         for(int &num : nums){
-            if(!hset.count(num-1)){
+            if(hset.find(num-1) ==  hset.end()){
                 // it is  start of sequence
                 // see how long this sequence gets
                 next = num;
                 temp = 0;
-                while(hset.count(next)){
+                while(hset.find(next) != hset.end()){
                     ++next;
                     ++temp;
                 }
