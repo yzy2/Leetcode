@@ -3,21 +3,21 @@ public:
     int longestConsecutive(vector<int>& nums) {
         
         unordered_set<int> hset;
-        
+        int next=0;
+        int output = 0;
+        int temp = 0;
         for(int &num : nums){
             hset.insert(num);
         }
         
-        int next;
-        int output = 0;
+
         for(int &num : nums){
-            
-            if(hset.find(num-1) ==  hset.end()){
+            if(!hset.count(num-1)){
                 // it is  start of sequence
                 // see how long this sequence gets
                 next = num;
-                int temp = 0;
-                while(hset.find(next) != hset.end()){
+                temp = 0;
+                while(hset.count(next)){
                     ++next;
                     ++temp;
                 }
