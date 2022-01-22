@@ -24,12 +24,9 @@ public:
             return val;
         }
         if(root->val == 1){
-            if(!helper(root->left)){
-                root->left = NULL;
-            };
-            if(!helper(root->right)){
-                root->right = NULL;
-            };
+            if(!helper(root->left))root->left = NULL;
+
+            if(!helper(root->right))root->right = NULL;
             return val = true;
         }
         bool leftv = helper(root->left);
