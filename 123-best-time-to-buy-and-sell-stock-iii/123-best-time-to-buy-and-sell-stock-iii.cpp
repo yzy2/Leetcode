@@ -2,19 +2,18 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         
-        int hold1_old=INT_MIN, sell1_old=0,hold2_old=INT_MIN, sell2_old=0;
-        int hold1, sell1,hold2, sell2;
+        int hold1=INT_MIN, sell1=0,hold2=INT_MIN, sell2=0;
         for(int &price:prices){
-                      
+            
+            int hold1_old = hold1;
+            int sell1_old = sell1;
+            int hold2_old = hold2;
+            int sell2_old = sell2;
+            
             hold1 = max(0-price, hold1_old);
             sell1 = max(hold1_old+price, sell1_old);
             hold2 = max(sell1_old-price, hold2_old);
             sell2 = max(hold2_old+price, sell2_old);
-            
-            hold1_old = hold1;
-            sell1_old = sell1;
-            hold2_old = hold2;
-            sell2_old = sell2;
         }
         return max(sell1, sell2);
     }
