@@ -12,11 +12,45 @@
 class Solution {
 public:
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
+        // naive approach
+        // vector<int> output;
+        // getVec(root1, output);
+        // getVec(root2, output);
+        //sort(output.begin(), output.end());
+        // inorder tree is ascending
+        
+        vector<int> output1;
+        getVec(root1, output1);
+        vector<int> output2;
+        getVec(root2, output2);
         
         vector<int> output;
-        getVec(root1, output);
-        getVec(root2, output);
-        sort(output.begin(), output.end());
+        int i = 0;
+        int j = 0;
+        while(i < output1.size() || j < output2.size()){
+            
+            if(i < output1.size() && j < output2.size()){
+                
+                if(output1[i] < output2[j]){
+                    output.push_back(output1[i]);
+                    i++;
+                }else{
+                    output.push_back(output2[j]);
+                    j++;
+                }
+                
+            }
+            else if(i < output1.size()){
+                output.push_back(output1[i]);
+                i++;
+            }
+            else if(j < output2.size()){
+                output.push_back(output2[j]);
+                j++;
+            }
+        }
+        
+        
         return output;
         
     }
