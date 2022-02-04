@@ -7,7 +7,7 @@ public:
         for(int &num : prices){
             int lastbuy = buy;
             int lastsell = sell;    
-            buy = min(lastbuy, num);
+            buy = (lastbuy  < num) ? lastbuy : num;
             sell = max(lastsell, num-lastbuy);
         }
         return sell;
