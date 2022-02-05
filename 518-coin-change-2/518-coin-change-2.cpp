@@ -29,4 +29,4 @@ public:
 // 1,2       1     1     2     2     3      3
 // 1,2,5     1     1     2     2     3      4
               
-// dp[i][j] = dp[i][j-1] + dp[i-coin]
+// dp[i][j] = dp[i-1][j] + dp[i][j-coins[i]]
